@@ -42,46 +42,46 @@ $font: sans-serif;
 }
 
 * {
-  margin : 0;
+  margin: 0;
   padding: 0;
 }
 
 body {
-  color      : $primary_colour;
+  color: $primary_colour;
   font-family: $font;
-  background : $secondary_background;
+  background: $secondary_background;
 }
 
 a {
   text-decoration: none;
-  color          : $primary_colour;
+  color: $primary_colour;
 }
 
 .room {
-  display       : flex;
+  display: flex;
   flex-direction: column;
-  width         : 100vw;
-  height        : 100vh;
-  align-items   : center;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
 
   .cloth {
-    flex          : 3 1 200px;
-    display       : flex;
+    flex: 3 1 200px;
+    display: flex;
     flex-direction: row;
-    align-items   : flex-end;
+    align-items: flex-end;
 
     h1 {
       text-align: center;
-      font-size : 64px;
-      animation : 60s ease-in-out infinite wavvy_text;
+      font-size: 64px;
+      animation: 60s ease-in-out infinite wavvy_text;
     }
   }
 
   .napkin {
-    flex          : 1 1 50px;
-    display       : flex;
+    flex: 1 1 50px;
+    display: flex;
     flex-direction: row;
-    align-items   : flex-end;
+    align-items: flex-end;
 
     h2 {
       text-align: center;
@@ -89,81 +89,104 @@ a {
   }
 
   .table {
-    flex           : 2 1 100px;
-    display        : flex;
-    margin-top     : 20px;
-    flex-wrap      : wrap;
+    flex: 2 1 100px;
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
     justify-content: space-around;
     @media all and (min-width: 600px) {
       flex-direction: row;
-      align-items   : flex-start;
+      align-items: flex-start;
     }
     @media all and (max-width: 600px) {
       flex-direction: column;
-      align-items   : stretch;
+      align-items: stretch;
     }
 
     .plate {
-      background   : $primary_colour;
-      margin       : 16px;
-      padding      : 16px;
+      background: $primary_colour;
+      margin: 16px;
+      padding: 16px;
       border-radius: 16px;
-      transform    : translateY(0px);
-      transition   : box-shadow 0.3s ease-out, transform 0.3s ease-out;
-      box-shadow   : 0 0 0 $primary_background_colour;
-      text-align   : center;
+      flex: 1 1 0;
+      transform: translateY(0px);
+      transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+      box-shadow: 0 0 0 $primary_background_colour;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
       // For big screens we have all the fancy hover effects
       @media all and (min-width: 600px) {
-        min-height: 0;
-        flex      : 1 1 100px;
-        max-width : 300px;
+        min-height: 55px;
+        flex: 1 1 100px;
+        max-width: 300px;
 
         &:hover {
-          transform : translateY(16px);
+          transform: translateY(16px);
           box-shadow: 0 -16px 0 $primary_background_colour;
 
           p {
-            &:nth-child(odd) {}
+            &:nth-child(1) {}
 
-            &:nth-child(even) {
+            &:nth-child(2) {
               max-height: 100px;
-              opacity   : 1;
+              opacity: 1;
               transition: max-height 0.3s ease-out, opacity 0.3s ease-out 0.3s;
             }
+
+            &:nth-child(3) {}
           }
         }
 
         p {
-          &:nth-child(odd) {
+          &:nth-child(1) {
+            text-align: center;
             font-size: 24px;
-            height   : auto;
-            margin   : auto;
+            height: auto;
+            margin: auto;
           }
 
-          &:nth-child(even) {
+          &:nth-child(2) {
             margin-top: 8px;
-            font-size : 20px;
-            overflow  : hidden;
+            font-size: 20px;
+            overflow: hidden;
             max-height: 0;
-            opacity   : 0;
+            opacity: 0;
             transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+          }
+
+          &:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            right: 4px;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 0;
+            font-weight: bolder;
+            white-space: nowrap;
+            opacity: 0.4;
+            color: $primary_background_colour;
           }
         }
       }
       // For small screens we just have the non-fancy static buttons
       @media all and (max-width: 600px) {
         min-height: 0;
-        flex      : 1 1;
+        flex: 1 1;
 
         p {
-          &:nth-child(odd) {
+          &:nth-child(1) {
             font-size: 20px;
-            height   : auto;
+            height: auto;
           }
 
-          &:nth-child(even) {
-            margin   : 0 8px;
+          &:nth-child(2) {
+            margin: 0 8px;
             font-size: 18px;
+          }
+
+          &:nth-child(3) {
+            visibility: hidden;
           }
         }
       }
@@ -188,8 +211,8 @@ a {
 }
 
 .nugget {
-  background   : $background_red;
-  padding      : 6px;
+  background: $background_red;
+  padding: 6px;
   border-radius: 6px;
 
   &:hover {

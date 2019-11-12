@@ -90,14 +90,17 @@ a {
   margin: 16px;
   padding: 16px;
   border-radius: 16px;
+  flex: 1 1 0;
   transform: translateY(0px);
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
   box-shadow: 0 0 0 #323232;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 @media all and (min-width: 600px) {
   .room .table .plate {
-    min-height: 0;
+    min-height: 55px;
     flex: 1 1 100px;
     max-width: 300px;
   }
@@ -105,17 +108,18 @@ a {
     transform: translateY(16px);
     box-shadow: 0 -16px 0 #323232;
   }
-  .room .table .plate:hover p:nth-child(even) {
+  .room .table .plate:hover p:nth-child(2) {
     max-height: 100px;
     opacity: 1;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out 0.3s;
   }
-  .room .table .plate p:nth-child(odd) {
+  .room .table .plate p:nth-child(1) {
+    text-align: center;
     font-size: 24px;
     height: auto;
     margin: auto;
   }
-  .room .table .plate p:nth-child(even) {
+  .room .table .plate p:nth-child(2) {
     margin-top: 8px;
     font-size: 20px;
     overflow: hidden;
@@ -123,19 +127,34 @@ a {
     opacity: 0;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
   }
+  .room .table .plate p:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    right: 4px;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 0;
+    font-weight: bolder;
+    white-space: nowrap;
+    opacity: 0.4;
+    color: #323232;
+  }
 }
 @media all and (max-width: 600px) {
   .room .table .plate {
     min-height: 0;
     flex: 1 1;
   }
-  .room .table .plate p:nth-child(odd) {
+  .room .table .plate p:nth-child(1) {
     font-size: 20px;
     height: auto;
   }
-  .room .table .plate p:nth-child(even) {
+  .room .table .plate p:nth-child(2) {
     margin: 0 8px;
     font-size: 18px;
+  }
+  .room .table .plate p:nth-child(3) {
+    visibility: hidden;
   }
 }
 .room .table .plate:nth-child(odd) {
