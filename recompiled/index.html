@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Tasks //RECOMPILED</title>
+  <meta name="author" content="Pedro Pires">
+  <meta name="description" content="If you're searching for the help on some exercises.">
+  <meta property="og:locale" content="en_UK">
+  <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+  <!-- <link rel="shortcut icon" type="image/png" href="https://www.pedrosmindblowers.org/favicon.png" /> -->
+  <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <!--
+██████  ███████  ██████  ██████  ███    ███ ██████  ██ ██      ███████ ██████
+██   ██ ██      ██      ██    ██ ████  ████ ██   ██ ██ ██      ██      ██   ██
+██████  █████   ██      ██    ██ ██ ████ ██ ██████  ██ ██      █████   ██   ██
+██   ██ ██      ██      ██    ██ ██  ██  ██ ██      ██ ██      ██      ██   ██
+██   ██ ███████  ██████  ██████  ██      ██ ██      ██ ███████ ███████ ██████
+-->
+    <div class="recompiled">
+      <div class="bar">
+        <h5 class="fixed">RECOMPILED</h5>
+      </div>
+      <section id="Feedback">
+        <a href="#Feedback">
+          <h1>Feedback</h1>
+        </a>
+        <div class="content">
+          <p>If anything is wrong with the recompile or you have a problem with this page existing please contact <a href="mailto:support@pedrosmindblowers.org">support@pedrosmindblowers.org</a>. Thank you.</p>
+        </div>
+      </section>
+      <section id="CodingPractices">
+        <a href="#CodingPractices">
+          <h1>Good Coding Practices</h1>
+        </a>
+        <div class="content">
+          <p>1. Don't forget to indent your code, having unindented code can make it less ilegible.</p>
+          <p>2. Various degrees of commenting, at the start you should have the author of the code and have some comments at the start of each function describing your design. This helps other developers and mantainers understand algorithms you
+            created.</p>
+          <p>3. Create Variables and Classes with easy to read names, this also helps when you're working with a team.</p>
+          <p>4. Create your functions as to make them as copy-past-able as possible so that you can reuse them in other programs or exercises.</p>
+          <p>5. Always test your code after you make a new big change or when you finish your project. This helps you refine the debugging to be easier.</p>
+        </div>
+      </section>
+      <section id="TASK_1_0">
+        <a href="#TASK_1_0">
+          <h1>Task 1 - Inheritance</h1>
+        </a>
+        <div class="content">
+          <p><span class="part">(a)</span> Write class Employee with a boolean <code>isWorking</code> and a String <code>company</code></p>
+          <pre>
+  public class Employee {
+    public boolean isWorking = true;
+    public String company = "Limited";
+  }</pre>
+          <p>Then in this class you need to add two methods that print to the console with <code>System.out.println()</code> called <code>working()</code> and <code>holiday()</code>. These should be public void methods and just print it to the
+            console.</p>
+          <p>With the Employee class set up you will need to set up 3 different classes that extend the Employee class. These classes should be called: <code>BankEmployee</code>, <code>UniversityEmployee</code>, and <code>HospitalEmployee</code>.
+            Each
+            of them should have its own special method that refers to each employees work. These should be something like:</p>
+          <pre>
+  // Start of BankEmployee
+  class BankEmployee extends Employee {
+    public String countsMoney () {
+      return "I am counting cash!";
+    }
+  }
+
+  // Start of HospitalEmployee
+  class HospitalEmployee extends Employee {
+    public String teachStudents () {
+      return "I am teaching!";
+    }
+  }
+
+  // Start of University
+  class UniversityEmplyee extends Employee {
+    public String nursing () {
+      return "I nurse patients!";
+    }
+  }</pre>
+          <p> <span class="part">(b)</span> After completing (a) create a class called <code>EmployeeTest</code> which creates instances of the Employee class children and and calls their special methods. This <code>EmployeeTest</code> class should
+            have
+            a <code>main()</code> method so that it can be run by Java. In the main you should call the special methods you created for each child of the <code>Employee</code> class and also call the other methods from the children in this order:</p>
+          <pre>
+  bankEmployee.countsMoney();
+  bankEmployee.working();
+  hospitalEmployee.holiday();
+  universityEmployee.working();</pre>
+          <p><span class="part">(c)</span> Modify the <code>Employee</code> class to be an Abstract class. Then you need to add the method <code>public abstract void writing()</code> to the <code>Employee</code> class.</p>
+          <p>An abstract class enforces its children to have their own versions of the method, so when in the <code>Employee</code> class we add the method <code>writing()</code> that means that all the classes that extend from <code>Employee</code>
+            have to have their own version of the method <code>writing()</code> or else the program wont run.</p>
+          <p>Then inside each of the subclasses (children) add their version of the <code>writing()</code> method like so: </p>
+          <pre>
+  // for the bankEmployee
+  public void writing (){
+    System.out.println( "Writing a Check" );
+  }</pre>
+          <pre>
+  // for the universityEmployee
+  public void writing (){
+    System.out.println( "Writing teaching notes" );
+  }</pre>
+          <pre>
+  // for the hospitalEmployee
+  public void writing (){
+    System.out.println( "Writing a prescription" );
+  }</pre>
+          <p> <span class="part">(d)</span> Now modify your <code>Employee</code> class from exercise (a) to add a <code>takeBreak()</code> method. This method should print out “the employee takes a break” but then should be overridden in each of
+            the
+            children with their own specific methods. <code>BankEmployee</code> should print "Go to pub", <code>HospitalEmployee</code> should print out "Go to hospital's canteen" and <code>UniversityEmployee</code> should print "Go to university's
+            restaurant" </p>
+          <p>This is an example of <b>Polymorphism</b> in which the superclass has the method but the children classes override that method with their own version. The word Polymorphism roughly means "having many forms" in latin which applies to
+            this
+            exercise. By changing the method of invidual children we are changing the form in which the child class operates but still extend all the other methods from the superclass. </p>
+          <p> <span class="part">(e)</span> Modify your <code>EmployeeTest</code> to print out the new methods you added in (d), the methods <code>takeBreak()</code> from each of the classes. </p>
+          <p> <span class="part">(f)</span> Using the classes created in (c) and (d), create a GUI (Graphical User Interface) with an <b>box to input text</b> (preferably by Ioannis, a JTextField), <b>two buttons</b> (preferably by Pedro, two
+            JButton)
+            and <b>a text box</b> (preferably by Pedro, a JTextArea). Then use the text box you created to take text input from the user, which can be bankEmployee, hospitalEmployee or universityEmployee, to select what class the user wants to use.
+            After you have that figured out you can make two buttons with the labels "Write" and "Take a Break" which each run the methods <code>writing()</code> and <code>takeBreak()</code> respectively.</p>
+          <p>This exercise has quite a steep learning curve but maybe I can give you some tips and suggestions:</p>
+          <h2>First take the exercise by steps.</h2>
+          <p>The first step is to create a GUI that can respond to the user pressing buttons. To help you with this you can read:</p>
+          <ul>
+            <li> <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JFrame.html"> JFrame Documentation</a> </li>
+            <li> <a href="https://docs.oracle.com/javase/7/docs/api/javax/swing/JTextField.html"> JTextField Documentation</a> </li>
+            <li> <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JTextArea.html"> JTextArea Documentation</a> </li>
+            <li> <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JButton.html"> JButton Documentation</a> </li>
+            <li> <a href="https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html"> Layout Tutorial</a> </li>
+          </ul>
+          <p>I found the java textfield tutorial was particulary useful for this task <a href="https://docs.oracle.com/javase/tutorial/uiswing/components/textfield.html">textfield tutorial</a>.</p>
+          <p>Here's some instructions from personal hellish experience:</p>
+          <ol>
+            <li>
+              <p>Alter your methods from Employee to fit the new application since those output to the console so you'll have to change the methods to return a String with the output instead of just printing to the console</p>
+            </li>
+            <li>
+              <p>Import <code>import javax.swing.*</code>, <code>import java.awt.*</code> and <code>import java.awt.event.*</code></p>
+            </li>
+            <li>
+              <p>Create your App or EmployeeTest class to extend <code>JFrame</code> and implement <code>ActionListener</code></p>
+              <ul>
+                <li>
+                  <p>Action Listener is very important, with this we can listen to Actions Performed like button presses and call methods when those actions happen</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>Pick a layout</p>
+            </li>
+            <li>
+              <p>Instanciate your JTextField and JTextArea</p>
+            </li>
+            <li>
+              <p>Instanciate your JButtons</p>
+            </li>
+            <li>
+              <p>Set Action Command for each of your buttons</p>
+            </li>
+            <li>
+              <p>Add your buttons to the ActionListener with <code>JButton.addActionListener( this )</code> </p>
+            </li>
+            <li>
+              <p>Implement the method (add to your App or EmployeeTest class) <code>public void actionPerformed ( ActionEvent event )</code> </p>
+              <ul>
+                <li>
+                  <p>In this method you can call other methods whenever an action (button press or others) is performed by the user</p>
+                </li>
+                <li>
+                  <p>To use the employees the user inputs into the text box you can use a <code>switch(JTextField.getText())</code> to check which employee the user typed in</p>
+                </li>
+                <li>
+                  <p>To read what button was pressed you can use <code>event.getActionCommand()</code>. This will return the name of the button or the action command you set on the button (you can set a custom action command when you instanciate the
+                    JButton by using <code>JButton.setActionCommand("enterCommandHere"))</code></p>
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <p>That's kind of it for <b>Task 1</b>, even tho the learning curve for this task was too steep, it was meant to taught you about class inheritace, polymorphism and abstracts because all GUI elements extend from the basic
+            java.awt.Container
+            and implement various methods from it in their own way. See ya till next task.</p>
+        </div>
+      </section>
+      <section id="TASK_2_0">
+        <a href="#TASK_2_0">
+          <h1>Task 2 - Java Applet</h1>
+        </a>
+        <div class="content">
+          <p><span class="part">(a)</span> Write class Employee with a boolean <code>isWorking</code> and a String <code>company</code></p>
+          <pre>
+  public class Employee {
+    public boolean isWorking = true;
+    public String company = "Limited";
+  }</pre>
+          <p>Then in this class you need to add two methods that return to the caller with <code>return "String";</code> called <code>working()</code> and <code>holiday()</code>. These should be <code>public String</code> methods and return their
+            result
+            to the caller. Something like this:</p>
+          <pre>
+  public String working () {
+    return "working";
+  }
+  public String holiday () {
+    return "On holidays";
+  }</pre>
+          <p>With the Employee class set up you will need to set up 3 different classes that extend the Employee class. These classes should be called: <code>BankEmployee</code>, <code>UniversityEmployee</code>, and <code>HospitalEmployee</code>.
+            Each
+            of them should have its own special method that refers to each employees work. These should be something like:</p>
+          <pre>
+  // for the bankEmployee
+  public void countsMoney (){
+    return "I am counting cash";
+  }</pre>
+          <pre>
+  // for the universityEmployee
+  public void teachStudents (){
+    return  "I am teaching";
+  }</pre>
+          <pre>
+  // for the hospitalEmployee
+  public void nursing (){
+    return "I am nursing";
+  }</pre>
+          <p> <span class="part">(b)</span> Create a class <code>EmployeeTest</code> that extends the Java Applet class (this class needs to be imported with <code>import java.applet.JApplet</code>). In this class you should create instances of each
+            of
+            the children classes of <code>Employee</code> (<code>BankEmployee</code>,<code>UniversityEmployee</code> and <code>HospitalEmployee</code>).</p>
+          <p>If you don't know what to do right now, like me, you can consult this outdated tutorial about JApplets: <a href="https://docs.oracle.com/javase/tutorial/deployment/applet/getStarted.html">Getting Started with Java Applets</a> (use the
+            bar
+            on the left to explore the getting started tutorial). The tutorial includes using threads to load your applet as to not slow down the program directly.</p>
+          <p>Your applet should override the <code>init()</code>, <code>start()</code>, <code>paint(Graphics g)</code>, <code>stop()</code> and <code>destroy()</code> of the JApplet class. The main ones to change would be the <code>init()</code> and
+            the
+            <code>paint(Graphics g)</code>.</p>
+          <ul>
+            <li>
+              <p>The <code>init()</code> method runs before the applet displays and is where you should include all the initialization of objects. </p>
+            </li>
+            <li>
+              <p>The <code>paint(Graphics g)</code> method runs when the initialization (<code>init()</code>) is done and should ahve all the code that displays the graphics of your application. </p>
+            </li>
+          </ul>
+          <p>These are just good coding practices if you ever work at a company or as a team producing a Java Applet but since the Java Applets have been depricated and dropped by all the modern browsers nowadays you might as well never learn this.</p>
+          <p>After you've succesfully gone thru hell to get an Applet to work on a modern browser you need to display a text containing the result of calling the methods:</p>
+          <pre>
+  bankEmployee.countsMoney();
+  bankEmployee.working();
+  hospitalEmployee.holiday();
+  universityEmployee.working();</pre>
+          <p>To draw one of the results of these methods you should have something like: <code>g.drawString(bankEmployee.countsMoney(), 0, 0)</code>, you should replace your "0,0" with the "x,y" coordenates of where you want to draw said String,
+            inside
+            your <code>paint(Graphics g)</code> method.</p>
+          <p> <span class="part">(c)</span> Add the method <code>takeBreak()</code> to your <code>Employee</code> class, developed in (a), to return the string "the employee takes a break". Also add the method to each of the children of the <code>Employee</code>
+            class (<code>BankEmployee</code>, <code>HospitalEmployee</code> and <code>UniversityEmployee</code>) with specific returns for each of the jobs, something along the likes of: </p>
+          <pre>
+  //for the BankEmployee class
+  public String countsMoney () {
+    return "I am counting cash!";
+  }</pre>
+          <pre>
+  //for the UniversityEmployee class
+  public String teachStudents () {
+    return "I am teaching!";
+  }</pre>
+          <pre>
+  //for the HospitalEmployee class
+  public String nursing () {
+    return "I nurse patients!";
+  }</pre>
+          <p> <span class="part">(d)</span> Add the new methods to the <code>paint(Graphics g)</code> method in the class you created in (b) by using something like <code>g.drawString(bankEmployee.takeBreak(), 0, 0)</code> in the <code>paint(Graphics
+              g)</code>
+            of your <code>EmployeeTest</code> class.
+          </p>
+          <p> <span class="part">(e)</span> Complete your <code>EmployeeTest</code> Applet by drawing a JTextField, two JButtons and a JTextArea alike <b>Task 1</b>'s exercise (f). </p>
+          <p>I highly recomend reading thru the <a href="https://docs.oracle.com/javase/tutorial/deployment/applet/developingApplet.html">Developing an Applet</a> section of the Java Applet Tutorial, it's highly informative about how to do all of
+            this.
+            I uses action listeners from <b>Task 1</b> in it so it'll be easy to understand the examples.</p>
+          <p>That's it for <b>Task 2</b>, in this task you were meant to learn more about old Graphical User Interfaces and the methods to create objects and display them manually on the application. Nothing too complicated for you I hope.</p>
+        </div>
+      </section>
+      <section id="TASK_3_0">
+        <a href="#TASK_3_0">
+          <h1>Task 3 - JDBC</h1>
+        </a>
+        <div class="content">
+          <p> <span class="part">Pedro's exquisite tips:</span> Since Ioannis wants the SQL queries you write for each of the exercises keep a history of what you sent to the SQL Workbench or whatever you use. I personally use sqlite that provides a
+            file with all the I ever made. </p>
+          <p> <span class="part">(a)</span> Create a table for storing data about employees, you can call it something like <code>myEmployeesBook</code>, with 5 collumns:</p>
+          <ul>
+            <li>
+              <p>Name - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Date of Employment - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Role - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Salary - FLOAT</p>
+            </li>
+            <li>
+              <p>Year of Employment - INT</p>
+            </li>
+          </ul>
+          <p> <span class="part">(b)</span> Create a table for storing data about books, you can call it something alike <code>myLibraryBooks</code>, with 7 collumns: </p>
+          <ul>
+            <li>
+              <p>Borrower Name - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Borrower ID - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Book Author - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Book Title - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Book Publisher - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Date Borrowed - VARCHAR or TEXT</p>
+            </li>
+            <li>
+              <p>Book Edition - INT</p>
+            </li>
+          </ul>
+          <p><a href="https://dev.mysql.com/doc/refman/5.7/en/create-table.html">If you don't know how to create a table</a></p>
+          <p> <span class="part">(c)</span> Populate your tables with at least 5 records on each of the tables using something like INSERT inside your JDBC</p>
+          <p>Populating your table shoul be very simple since we done it with Philip on the 2nd year but I'll tell you again:</p>
+          <ul>
+            <li>
+              <p><code>INSERT INTO table_name (name,salary) VALUES(John,5)</code> - The first parentesis references what columns you would like to insert values into on your new record and the second parentesis is the values you want to insert</p>
+            </li>
+          </ul>
+          <p><a href="https://dev.mysql.com/doc/refman/5.7/en/insert.html">If you don't know how to use INSERT still</a></p>
+          <p>Highly recomend reading the <a href="https://docs.oracle.com/javase/tutorial/jdbc/overview/index.html">JDBC Getting Started Tutorial</a></p>
+          <p>If you don't have the drivers then you can get them here <a href="https://dev.mysql.com/downloads/connector/j/">MySQL Downloads</a></p>
+          <p>In case you care I'll do a quick overview of how to use MySQL in JDBC:</p>
+          <ol>
+            <li>
+              <p>Create a connection to the Database</p>
+              <pre>Connection con = DriverManager.getConnection("jdbc:myDriver:myDatabase",username,password)</pre>
+              <p>By creating this object you are effectively connecting to your database</p>
+            </li>
+            <li>
+              <p>Create the MySQL statement</p>
+              <pre>Statement stmt = con.createStatement();</pre>
+            </li>
+            <li>
+              <p>Create the MySQL query string queries</p>
+              <pre>String query = "INSERT INTO table_name (name,salary) VALUES(John,5)";</pre>
+            </li>
+            <li>
+              <p>Send the query to the database to get the resulting set of values or rows</p>
+              <pre>ResultSet rs = stmt.executeQuery(query);</pre>
+            </li>
+            <li>
+              <p>Close your connection</p>
+              <pre>con.close()</pre>
+            </li>
+          </ol>
+          <p> <span class="part">(d)</span> Use JDBC to a new record into both your tables.</p>
+          <p>Use something like in (c).</p>
+          <p> <span class="part">(e)</span> Use JDBC to remove am existing record from your Library Books table.</p>
+          <p>You can use <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html"><code>DELETE</code> (link to MySQL docs)</a> to remove an existing record.</p>
+          <p> <span class="part">(f)</span> Use JDBC to alter an existing record from your Employees Book table.</p>
+          <p>You can use <a href="https://dev.mysql.com/doc/refman/5.7/en/update.html"><code>UPDATE</code> (link to MySQL docs)</a> to alter an existing record.</p>
+        </div>
+      </section>
+      <section id="TASK_4_0">
+        <a href="#TASK_4_0">
+          <h1>Task 4 - Multithreading</h1>
+        </a>
+        <div class="content">
+          <p>JDBC provides full support for Multithreading. If two threads use the same connection then one of the threads will wait until the other is done using the JDBC connection.</p>
+          <p>For this task you should create an application that uses JDBC with one of your previously created databases (either <code>myEmployeesBook</code> or <code>myLibraryBooks</code>). The program should also be able to have support JDBC
+            connections with 10 users (but Ioannis also says that the users should share the same connection). Either way, here's a link to how to create new users for you database <a href="https://dev.mysql.com/doc/refman/5.7/en/grant.html">GRANT
+              Syntax Docs</a></p>
+          <p>
+            <blockquote>"Implement in your code trying simultaneously to remove a record from your database table."</blockquote> - Ioannis
+          </p>
+          <p><b>Translator's notes:</b> I really don't understand what Ioannis wants but I think with "10 users that share connection" he meant that there should be 10 threads that share the same connection. So I'll give you some tips: </p>
+          <p>If you make a class that extends Runnable you can have the JDBC querries execute in order inside your threads. In your class you should implement the method <code>run()</code> with your JDBC querries that need to be executed by one of
+            the
+            users. Maybe Ioannis meant for you to create a Thread for each user and execute simple mySQL queries inside of it. </p>
+          <pre>
+  public class MyRunnable implements Runnable {
+    private String query;
+
+    // This is the constructor, with this when you instanciate a MyRunnable you can give it a specific query
+    MyRunnable(String newQuery){
+      this.query = newQuery;
+    }
+
+    public ResultSet run() {
+      //In here you should have your querries that you need to run in your thread. For example:
+      Connection con = DriverManager.getConnection("jdbc:myDriver:myDatabase",username,password)
+      Statement stmt = con.createStatement();
+      ResultSet rs = stmt.executeQuery(query);
+      con.close();
+      // You should return the result set to the thread that runs this Runnable
+      return rs;
+    }
+  }</pre>
+          <p>After you made your Runnable class you can then create a Thread to run these. To do this you can create a class that extends <code>Thread</code> or you can use <code>new Thread(new MyRunnable()).start()</code> to create a new thread and
+            start running the Runnable. </p>
+          <pre>
+  public class MyThread extends Thread{
+    // With this constructor you can pass the Runnable you created to the Thread when you create a new instance
+    MyThread(MyRunnable newRunnable){
+      // by using super(newRunnable) you are calling the original Thread class to add the Runnable task to it
+      super(newRunnable);
+    }
+
+    run(){
+      // Here you can write some code for checking if the Thread has started when myThread.start() is called
+      System.out.println("My Thread is Running");
+    }
+  }</pre>
+          <p>This would be the optimal way to create a threads that all use the same connection but I think Ioannis wants you to synchronize all the threads to simultaneously try to DELETE the a record from the database. </p>
+          <p>To do what Ioannis says, you'll need to implement synchronised methods inside a class you should call something like <code>SynchronisedDatabase</code>, <code>SyncDB</code> or <code>Resouce</code>. The main concepts about synchronised
+            methods to grasp are simple:</p>
+          <ol>
+            <li>
+              <p>If two threads try to call a synchronised method then one thread can execute the method and the other thread will have to wait until the first is done to proceed with using the method.</p>
+            </li>
+            <li>
+              <p>When a synchronised methods finishes it updates the instance of the class before they are called again, this guarantees that the state of the instanced class will change state before the next time a synchronised method is called
+                from
+                it. </p>
+            </li>
+          </ol>
+          <p>To create a synchronised method you just have to add <code>synchronized</code> to the method you want to create, something like: </p>
+          <pre>
+  public synchronised void doSomething(){
+    // Do your code here, something like accessing database and writing new values to it.
+  }</pre>
+          <p>Then after you create a class with all the synchronised methods you can finally do what the exercise tells you to. For 10 users (or rather, Threads) simultaneously have them attempt to DELETE a record from a database and make it so that
+            the
+            java threads all wait for eachother and take turns accessing the database. If you don't know how to write DELETE querries then you might need <a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html">MySQL DELETE documentation</a></p>
+          <p>This <b>Task 4</b> was meant to teach you about handling Multithreading with one single database. Even tho Ioannis' original task might have not been very informative, I hope this was of help. </p>
+        </div>
+      </section>
+      <section>
+        <a href="#TASK_5_0" id="TASK_5_0">
+          <h1>Task 5 - SSL Encryption with MySQL and JDBC</h1>
+        </a>
+        <div class="content">
+          <p>Sometimes it's in your client's interest to have their data kept secret to the rest of the network since it's frequent for some connections to be vunerable to the "Man-in-the-middle" attack. This kind of attack looks something like
+            this:</p>
+          <img src="https://miro.medium.com/max/1308/1*9qYEKPqFVKfir5VxyF5bFg.png" alt="">
+          <a href="https://medium.com/querypie/mysql-ssl-connection-using-jdbc-bee3bcb59029" target="_blank">link to article about ssl where I got this emage from</a>
+          <p>Between the client and the server there could be someone, or a device, that intercepts the communication and if it's not encrypted that communication can show all the data sent by the client (passwords, usernames, contact details, other
+            scary stuff...) to the interceptor. SSL scrambles the data using keys provided by the client and the server and so can only be unencrypted by the server and the client making the data less vunerable to attacks. Sometimes it really be
+            like
+            that.</p>
+          <p>The best way to explain how SSL encryption is the oldest way in the book. The most classical way possible, imagine two kings lived in distant lands and one of them needed to send an offer something but didn't want the treasure to be
+            stolen.
+            So the first king locks the chest with a key but what does he do then? Does he send the key and the chest? Or the key and then after in a different day send the chest? Or does he send multiple keys but only one of them can open the
+            chest?
+            How does the first king make sure that the chest stays locked until it gets to the other king where it can get opened? The solution is to send the locked chest to the second king then the king puts his own lock in the chest and sends it
+            back
+            to the first king so then the first king can take the first lock away with his key and send it to the second king which has the key for the second lock.</p>
+          <p>I thought it would be important to know why SSL encryption is important. Basically the client has a private key with which he encrypts the data then the server has a public key which also encrypts the data and works kind of like the
+            example
+            with the kings I made just a minute ago. Here's a link to an article also explaining how keys work in SSL encryption <a href="https://www.ssl.com/article/private-and-public-keys/">Public and Private Keys</a>.</p>
+          <p>Anyhow now that you learnt something here's what <b>Task 5</b> wants you to do: </p>
+          <ol>
+            <li>
+              <p>Enable SSL on your MySQL database thru Workbench or whatever you use.</p>
+              <p>Basically it's already enabled if the MySQL database isn't 15 years old but in case you want to check you can do this:</p>
+              <img src="https://miro.medium.com/max/1964/1*EGiAF8l3r5G-NHrIaKI5VA.png" alt="">
+            </li>
+            <li>
+              <p>Add useSSL, requireSSL and verifyServerCertificate to your JDBC connection string before connecting</p>
+              <ul>
+                <li>
+                  <p>Basically by adding useSSL we are making the connection use encryption and requireSSL forces the connection to use SSL and reject no use of SSL.</p>
+                </li>
+                <li>
+                  <p>By adding verifyServerCertificate but changing it to false we effectively make the keys not have validation which means that the server has to trust that the person who is connecting is who it is without checking if it really
+                    is.
+                  </p>
+                </li>
+                <li>
+                  <p>It really be like that.</p>
+                </li>
+                <li>
+                  <pre>
+  String url = "jdbc:mysql://your/database"+
+  	"?verifyServerCertificate=false"+
+  	"&useSSL=true"+
+  	"&requireSSL=true";</pre>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p>Then connect to your database with the new URL</p>
+              <p><code>con = DriverManager.getConnection(url, user, password)</code></p>
+            </li>
+          </ol>
+          <p>If you need some more help Ioannis says this link shows some good code to copy and plagiarize: <a href="https://razorsql.com/articles/mysql_ssl_jdbc.html">Connecting to MySQL via an Encrypted Connection using SSL and JDBC</a> </p>
+          <p>After you added all those lines just run your code and screenshot the code just to make sure it works.</p>
+          <p>That's <b>Task 5</b> for you. Ioannis didn't wanna tell you extensively why to use SSL but I thought it would be interesting to teach you some old classic stories about it before the exercise instructions.</p>
+        </div>
+      </section>
+      <section id="CONCLUSION">
+        <a href="#CONCLUSION">
+          <h1>Conclusion</h1>
+        </a>
+        <div class="content">
+          <p>Even tho Ioannis is a great lecturer, it's always hard to make sense of what he wants you to do. I always need to make a list of what the exercises tell you to do anyways so I thought I would share it this time. Thank you everyone
+            that got to the end without smashing your brains against the wall.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  <footer>
+    <p>this page was made with love by Pedro</p>
+    <p class="nugget">&lt;3</p>
+    <p>and is available on <a class="part" href="https://github.com/onelikeandidie/pedrosmindblowers">github</a></p>
+  </footer>
+</body>
+
+</html>

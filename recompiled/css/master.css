@@ -1,0 +1,256 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: #343434;
+  font-family: sans-serif;
+  background: linear-gradient(217deg, #dec1c1, rgba(255, 0, 0, 0) 100%), linear-gradient(127deg, #d5b1b1, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #cca0a0, rgba(0, 0, 255, 0) 100%);
+}
+
+a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #3a64af;
+  transform: translateX(0px);
+  transition: transform 0.3s;
+}
+a:hover {
+  color: #557ec7;
+  transform: translateX(6px);
+}
+a:hover::after {
+  content: " >";
+  margin-right: 4px;
+  font-size: inherit;
+}
+
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.recompiled {
+  flex: 1 0 0;
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-wrap: normal;
+  text-align: justify;
+  background: #fff;
+}
+.recompiled .spacer {
+  height: 60px;
+  display: block;
+}
+
+.recompiled {
+  flex: 3 0 0;
+}
+.recompiled .bar {
+  background: linear-gradient(127deg, #2fb4c6, rgba(255, 0, 0, 0) 100%), linear-gradient(217deg, #52c6d6, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #2aa1b1, rgba(0, 0, 255, 0) 100%);
+}
+.recompiled h1::before {
+  background: linear-gradient(127deg, #2fb4c6, rgba(255, 0, 0, 0) 100%), linear-gradient(217deg, #52c6d6, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #2aa1b1, rgba(0, 0, 255, 0) 100%);
+}
+
+.bar {
+  z-index: 100;
+  top: 0;
+  transform: translateY(-10px);
+  padding: 8px 16px 8px 8px;
+}
+.bar h5.fixed {
+  height: 28px;
+  line-height: 28px;
+  font-size: 28px;
+  margin: 0 4px 0 16px;
+}
+.bar h5.fixed::before {
+  content: "//";
+}
+
+.part {
+  font-weight: bolder;
+}
+
+h1 {
+  padding: 8px;
+  margin-left: 8px;
+  margin-top: 16px;
+  display: inline-block;
+  position: relative;
+}
+h1::before {
+  content: " ";
+  position: absolute;
+  background: linear-gradient(127deg, #2fb4c6, rgba(255, 0, 0, 0) 100%), linear-gradient(217deg, #52c6d6, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #2aa1b1, rgba(0, 0, 255, 0) 100%);
+  width: 30px;
+  height: 28px;
+  left: -30px;
+}
+
+h2 {
+  padding: 8px;
+}
+
+p {
+  padding: 6px;
+  font-size: 18px;
+}
+
+section {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 40px;
+}
+section > a {
+  flex: 1 1 100px;
+  position: relative;
+}
+section > a h1 {
+  position: -webkit-sticky;
+  position: sticky;
+  text-align: left;
+  top: 10px;
+}
+section > a:hover {
+  color: #557ec7;
+  transform: translateX(6px);
+}
+section > a:hover::after {
+  content: none;
+}
+section .content {
+  flex: 5 1 500px;
+  margin-top: 20px;
+  border-left: #2a63ad solid 5px;
+}
+
+ol li,
+ul li {
+  padding: 6px;
+  margin: 6px 18px;
+  text-align: left;
+  overflow-x: scroll;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+}
+ol > li {
+  padding: 12px 8px;
+  border-radius: 6px;
+  counter-increment: item;
+  position: relative;
+  background: #252525;
+  color: #cdcdcd;
+  z-index: 1;
+}
+ol > li::before {
+  content: counter(item);
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: 0;
+  opacity: 0.3;
+  font-size: 46px;
+}
+
+ul {
+  list-style: none;
+  position: relative;
+}
+ul > li {
+  padding: 12px;
+  position: relative;
+}
+ul > li::before {
+  content: " ";
+  position: absolute;
+  height: 4px;
+  width: 8px;
+  left: 0;
+  top: 45%;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  font-size: 46px;
+  background: linear-gradient(to right, #323232 50%, transparent 50%, transparent 60%, #2fb4c6 60%);
+}
+
+code {
+  display: inline-block;
+  font-size: 18px;
+  background: #323232;
+  color: #cdcdcd;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+pre {
+  display: block;
+  font-size: 18px;
+  background: #323232;
+  color: #cdcdcd;
+  padding: 6px;
+  border-radius: 6px;
+  margin: 6px;
+  overflow-x: scroll;
+}
+
+img {
+  width: 70%;
+  margin: auto;
+  display: block;
+}
+
+footer {
+  color: white;
+  position: fixed;
+  display: block;
+  text-align: center;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4px;
+  background: linear-gradient(to right, #2a63ad, #2fb4c6);
+  height: 30px;
+}
+footer p {
+  display: inline-block;
+}
+footer a {
+  color: #c8d5ed;
+  transform: translateY(0px);
+}
+footer a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+footer a:hover::after {
+  content: none;
+}
+
+.nugget {
+  background: linear-gradient(217deg, #2a63ad, rgba(255, 0, 0, 0) 100%), linear-gradient(127deg, #3b7bcf, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #255798, rgba(0, 0, 255, 0) 100%);
+  padding: 6px;
+  border-radius: 6px;
+}
+.nugget:hover {
+  animation: 1s infinite rotation;
+}
+
+/*# sourceMappingURL=master.css.map */
